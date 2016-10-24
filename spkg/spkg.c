@@ -84,11 +84,7 @@ spkg_return_t spkg_create_struct(spkg_config_t config)
 		strncat(path, root_path, root_len);
 		strncat(path, dirs[i], dir_len);
 
-		//if(config.spkg_run_verbose_mode = 1 )
-		//	printf(t_("Creating %s directory\n"), path);
-
-		//mkpath(path, 0755);
-		printf("%s\n", path);
+		spkg_mkpath(path, 0755);
 		free(path);
 	}
 	

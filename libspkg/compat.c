@@ -6,9 +6,9 @@
 #include <sys/stat.h>
 
 #include "libspkg.h"
-#include "utils.h"
+#include "compat.h"
 
-spkg_return_t mkpath(char* path, mode_t mode)
+spkg_return_t spkg_mkpath(char* path, mode_t mode)
 {
 	int errno;
 
@@ -42,3 +42,18 @@ spkg_return_t mkpath(char* path, mode_t mode)
 
 	return SPKG_SUCCESS;
 }
+
+char* spkg_dirname(char* path)
+{
+	char* str;
+
+	return str;
+}
+
+char* spkg_basename(char* path)
+{
+	char* str;
+	
+	return str;
+}
+
