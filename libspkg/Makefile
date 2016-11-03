@@ -1,8 +1,8 @@
 #!/usr/bin/make -f
 
 CC      = gcc
-LIB_SRC = list.c compat.c
-LIB_OBJ = list.o compat.o
+LIB_SRC = list.c compat.c unixabs.c
+LIB_OBJ = list.o compat.o unixabs.o
 SOLIB   = libspkg.so.1
 CFLAGS  = -I.
 

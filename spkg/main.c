@@ -5,7 +5,8 @@
 
 #include "../libspkg/libspkg.h"
 #include "../libspkg/list.h"
-#include "../libspkg/utils.h"
+#include "../libspkg/compat.h"
+#include "../libspkg/unixabs.h"
 
 #include "spkg.h"
 

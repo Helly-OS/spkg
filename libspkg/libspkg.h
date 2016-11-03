@@ -22,9 +22,17 @@ typedef enum
 	SPKG_DIR_NOT_FOUND,
 	SPKG_FAILED_TO_CREATE,
 	SPKG_FAILED_TO_REMOVE
-} spkg_return_t;
+} spkg_status_t;
 
-#define SPKG_BASE_DIR	"/var/spkg"
+typedef enum
+{
+	SPKG_FILE,
+	SPKG_DIRECTORY,
+	SPKG_SYMLINK,
+	SPKG_HARDLINK,
+}spkg_unix_t;
+
+#define SPKG_BASE_DIR	"/var/spkg/"
 #define SPKG_DATA_DIR	"/var/spkg/data"
 #define SPKG_PKGS_DIR	"/var/spkg/pkgs"
 #define SPKG_TEMP_DIR	"/var/spkg/tmp"

@@ -14,7 +14,7 @@ spkg_list_t* spkg_new_list(void)
 	return list;
 }
 
-spkg_return_t spkg_append_to_list(spkg_list_t* list, char* member)
+spkg_status_t spkg_append_to_list(spkg_list_t* list, char* member)
 {
 	size_t new_size = list->size + 1;
 	char** new_vector = realloc(list->vector,new_size*sizeof(char*));
@@ -27,7 +27,7 @@ spkg_return_t spkg_append_to_list(spkg_list_t* list, char* member)
 	return SPKG_SUCCESS;
 }
 
-spkg_return_t spkg_print_list(spkg_list_t* list)
+spkg_status_t spkg_print_list(spkg_list_t* list)
 {
 	int i=0;
 
@@ -40,7 +40,7 @@ spkg_return_t spkg_print_list(spkg_list_t* list)
 	return SPKG_SUCCESS;
 }
 
-spkg_return_t spkg_destroy_list(spkg_list_t* list)
+spkg_status_t spkg_destroy_list(spkg_list_t* list)
 {
 	free(list->vector);
 	free(list);

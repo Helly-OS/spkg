@@ -5,6 +5,8 @@
 
 #include "../libspkg/libspkg.h"
 #include "../libspkg/list.h"
+#include "../libspkg/unixabs.h"
+
 #include "spkg.h"
 
 int spkg_init_config(spkg_config_t* config)
@@ -61,8 +63,14 @@ int spkg_init_config(spkg_config_t* config)
 	return 0;
 }
 
-spkg_return_t spkg_create_struct(spkg_config_t config)
+spkg_status_t spkg_create_struct(spkg_config_t config)
 {
+	spkg_unix_path_t test_path;
+	spkg_init_path(&test_path, SPKG_BASE_DIR);
+
+	printf("%s\n%s\n", test_path.spkg_raw_path, test_path.spkg_san_path);
+
+/*
 	int i;
 	char* root_path = config.spkg_default_root;
 	size_t root_len = strlen(root_path);
@@ -87,7 +95,7 @@ spkg_return_t spkg_create_struct(spkg_config_t config)
 		spkg_mkpath(path, 0755);
 		free(path);
 	}
-	
+*/
 	return SPKG_SUCCESS;
 }
 

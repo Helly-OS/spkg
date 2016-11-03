@@ -8,7 +8,7 @@
 #include "libspkg.h"
 #include "compat.h"
 
-spkg_return_t spkg_mkpath(char* path, mode_t mode)
+spkg_status_t spkg_mkpath(char* path, mode_t mode)
 {
 	int errno;
 
@@ -22,7 +22,7 @@ spkg_return_t spkg_mkpath(char* path, mode_t mode)
 	if (!stat(path, &sb))
 		return 0;
 
-	if(mkpath(dirname(strdup(path)), mode) != SPKG_SUCCESS)
+	if(spkg_mkpath(dirname(strdup(path)), mode) != SPKG_SUCCESS)
 		return SPKG_FAILED;
 
 	mkdir(path, mode);
@@ -43,16 +43,25 @@ spkg_return_t spkg_mkpath(char* path, mode_t mode)
 	return SPKG_SUCCESS;
 }
 
+char* spkg_remove_trailing_slash(char* path)
+{
+	size_t len = strlen(path);
+	if((len > 0) && (path[len-1] == '/'))
+		path[len-1] = '\0';
+
+	return path;
+}
+
 char* spkg_dirname(char* path)
 {
-	char* str;
+	char* str = path;
 
 	return str;
 }
 
 char* spkg_basename(char* path)
 {
-	char* str;
+	char* str = path;
 	
 	return str;
 }

@@ -71,6 +71,6 @@ int spkg_init_config(spkg_config_t* config);
 /* Show runtime help */
 void spkg_show_help(void);
 
-spkg_return_t spkg_create_struct(spkg_config_t config);
+spkg_status_t spkg_create_struct(spkg_config_t config);
 
 #endif

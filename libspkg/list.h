@@ -11,8 +11,8 @@ typedef struct
 } spkg_list_t;
 
 spkg_list_t* spkg_new_list(void);
-spkg_return_t spkg_append_to_list(spkg_list_t* list, char* member);
-spkg_return_t spkg_print_list(spkg_list_t* list);
-spkg_return_t spkg_destroy_list(spkg_list_t* list);
+spkg_status_t spkg_append_to_list(spkg_list_t* list, char* member);
+spkg_status_t spkg_print_list(spkg_list_t* list);
+spkg_status_t spkg_destroy_list(spkg_list_t* list);
 
 #endif
