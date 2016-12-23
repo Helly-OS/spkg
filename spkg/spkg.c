@@ -5,6 +5,7 @@
 
 #include "../libspkg/libspkg.h"
 #include "../libspkg/list.h"
+#include "../libspkg/compat.h"
 #include "../libspkg/unixabs.h"
 
 #include "spkg.h"
@@ -68,7 +69,16 @@ spkg_status_t spkg_create_struct(spkg_config_t config)
 	spkg_unix_path_t test_path;
 	spkg_init_path(&test_path, SPKG_BASE_DIR);
 
-	printf("%s\n%s\n", test_path.spkg_raw_path, test_path.spkg_san_path);
+	printf(
+		"Raw path: %s\n" \
+		"Sanity path: %s\n" \
+		"Dirname: %s\n" \
+		"Basename: %s\n", \
+		test_path.spkg_raw_path, \
+		test_path.spkg_san_path, \
+		test_path.spkg_dir_name, \
+		test_path.spkg_base_name \
+	);
 
 /*
 	int i;

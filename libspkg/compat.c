@@ -48,8 +48,10 @@ char* spkg_sanity_path(char* path)
 	if(strlen(path) == 0)
 		return path;
 
-	const char* src = path;
-	char* dst = path;
+	char* strPtr1 = strdup(path);
+
+	const char* src = strPtr1;
+	char* dst = strPtr1;
  
 	while ((*dst = *src) != '\0') 
 	{
@@ -60,13 +62,13 @@ char* spkg_sanity_path(char* path)
 		dst++;
 	}
 
-	char* str = strdup(path);
-	size_t len = strlen(str);
+	char* strPtr2 = strdup(strPtr1);
+	size_t len = strlen(strPtr2);
 
-	if((len > 0) && (str[len-1] == '/'))
-			str[len-1] = '\0';
+	if((len > 0) && (strPtr2[len-1] == '/'))
+			strPtr2[len-1] = '\0';
 
-	return str;
+	return strPtr2;
 }
 
 char* spkg_dirname(char* path)
