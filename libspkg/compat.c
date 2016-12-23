@@ -43,26 +43,50 @@ spkg_status_t spkg_mkpath(char* path, mode_t mode)
 	return SPKG_SUCCESS;
 }
 
-char* spkg_remove_trailing_slash(char* path)
-{
-	size_t len = strlen(path);
-	if((len > 0) && (path[len-1] == '/'))
-		path[len-1] = '\0';
+char* spkg_sanity_path(char* path)
+{	
+	if(strlen(path) == 0)
+		return path;
 
-	return path;
+	const char* src = path;
+	char* dst = path;
+ 
+	while ((*dst = *src) != '\0') 
+	{
+		do {
+			src++;
+		} while ((*dst == '/' || *dst == '\\')  && (*src == '/' || *src == '\\'));
+			
+		dst++;
+	}
+
+	char* str = strdup(path);
+	size_t len = strlen(str);
+
+	if((len > 0) && (str[len-1] == '/'))
+			str[len-1] = '\0';
+
+	return str;
 }
 
 char* spkg_dirname(char* path)
 {
-	char* str = path;
+	if(strlen(path) == 0)
+		return path;
 
-	return str;
+	char* str = strdup(path);
+	char* dname = dirname(str);
+
+	return dname;
 }
 
 char* spkg_basename(char* path)
 {
-	char* str = path;
-	
-	return str;
-}
+	if(strlen(path) == 0)
+		return path;
 
+	char* str = strdup(path);
+	char* bname = basename(str);
+
+	return bname;
+}
