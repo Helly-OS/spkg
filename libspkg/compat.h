@@ -7,5 +7,6 @@ spkg_status_t spkg_mkpath(char* path, mode_t mode);
 char* spkg_sanity_path(char* path);
 char* spkg_dirname(char* path);
 char* spkg_basename(char* path);
+spkg_unix_t spkg_get_unix_type(char* str);
 
 #endif

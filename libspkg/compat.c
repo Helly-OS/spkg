@@ -92,3 +92,19 @@ char* spkg_basename(char* path)
 
 	return bname;
 }
+
+spkg_unix_t spkg_get_unix_type(char* str)
+{
+	spkg_unix_t outCode = SPKG_UNDEFINED;
+
+    struct stat fileStat;
+    if(stat(str,&fileStat) == 0)
+    {
+    	if(S_ISREG(fileStat.st_mode))
+    		return SPKG_FILE;
+    }
+
+	return outCode;
+}
+
+

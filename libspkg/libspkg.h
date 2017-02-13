@@ -26,6 +26,7 @@ typedef enum
 
 typedef enum
 {
+	SPKG_UNDEFINED,
 	SPKG_FILE,
 	SPKG_DIRECTORY,
 	SPKG_SYMLINK,

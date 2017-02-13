@@ -73,11 +73,13 @@ spkg_status_t spkg_create_struct(spkg_config_t config)
 		"Raw path: %s\n" \
 		"Sanity path: %s\n" \
 		"Dirname: %s\n" \
-		"Basename: %s\n", \
+		"Basename: %s\n" \
+		"Unix type: %d\n", \
 		test_path.spkg_raw_path, \
 		test_path.spkg_san_path, \
 		test_path.spkg_dir_name, \
-		test_path.spkg_base_name \
+		test_path.spkg_base_name, \
+		test_path.spkg_target_type \
 	);
 
 /*
